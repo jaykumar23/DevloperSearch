@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Projects</h1>
+{% for project in projects  %}
+    <ul>
+{% comment %} url name and dynamic val also single quote {% endcomment %}
+        <li>Title: <a href="{% url 'project' project.id %}">{{project.title}}</a> --- DES: {{project.description}} --- <a href="{% url 'update-project' project.id %}">Update</a> --- <a href="{% url 'delete-project' project.id %}">Delete</a></li>
+    </ul>
+{% endfor %}
+{% endblock content %}
